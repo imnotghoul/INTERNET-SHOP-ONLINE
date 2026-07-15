@@ -1,43 +1,43 @@
 # NORTHLINE
 
-Premium streetwear e-commerce portfolio project built as a real, full-stack commercial storefront. It includes a cinematic responsive storefront, a searchable/filterable 30-product catalog, product detail pages, persistent cart and favorites, validated checkout, customer accounts, order history, credentials authentication, a role-protected admin control room, PostgreSQL persistence and demo seed data.
+Премиальный интернет-магазин уличной одежды, созданный как полноценный коммерческий full-stack проект. Включает кинематографичный адаптивный storefront, каталог из 30 товаров с поиском и фильтрами, страницы товаров, сохраняемые корзину и избранное, проверяемое оформление заказа, аккаунты покупателей, историю заказов, авторизацию по логину и паролю, защищённую ролями административную панель, хранение данных в PostgreSQL и демонстрационные seed-данные.
 
-## Stack
+## Стек
 
-Next.js App Router, React, TypeScript, Tailwind CSS, Prisma, PostgreSQL, Auth.js, React Hook Form, Zod, Framer Motion, Zustand, Lucide and Sonner.
+Next.js App Router, React, TypeScript, Tailwind CSS, Prisma, PostgreSQL, Auth.js, React Hook Form, Zod, Framer Motion, Zustand, Lucide и Sonner.
 
-## Local setup
+## Локальный запуск
 
-1. The repository already includes a local portfolio `.env`. Replace `AUTH_SECRET` only if this project is ever deployed publicly.
-2. Install dependencies: `npm install`.
-3. Start PostgreSQL: `docker compose up -d db` (host port `5433`, chosen to avoid common local conflicts).
-4. Generate Prisma client and migrate: `npx prisma generate && npx prisma migrate dev --name init`.
-5. Load demo data: `npm run db:seed`.
-6. Start development: `npm run dev` and open `http://localhost:3100`.
+1. В репозитории уже есть локальный файл `.env` для портфолио. Замените `AUTH_SECRET`, только если проект когда-либо будет опубликован.
+2. Установите зависимости: `npm install`.
+3. Запустите PostgreSQL: `docker compose up -d db` (порт хоста `5433` выбран, чтобы избежать распространённых конфликтов).
+4. Сгенерируйте Prisma Client и выполните миграцию: `npx prisma generate && npx prisma migrate dev --name init`.
+5. Загрузите демонстрационные данные: `npm run db:seed`.
+6. Запустите режим разработки: `npm run dev`, затем откройте `http://localhost:3100`.
 
-## Demo credentials
+## Демо-учётные данные
 
-- Admin: `admin@northline.local` / `Admin12345!`
-- Customer: `user@northline.local` / `User12345!`
+- Администратор: `admin@northline.local` / `Admin12345!`
+- Покупатель: `user@northline.local` / `User12345!`
 
-Admin is available at `/admin/login`. Payment is intentionally simulated; checkout creates a real order record but never handles card details.
+Административная панель доступна по адресу `/admin/login`. Оплата намеренно смоделирована: оформление заказа создаёт настоящую запись в базе данных, но данные банковских карт никогда не обрабатываются.
 
-## Useful commands
+## Полезные команды
 
-- `npm run dev` — development server
-- `npm run typecheck` — strict TypeScript validation
-- `npm run build` — Prisma generation and production build
-- `npm run db:migrate` — create/apply a development migration
-- `npm run db:seed` — reset and load portfolio demo data
-- `docker compose --profile production up --build` — build the complete app and database stack
+- `npm run dev` — сервер разработки
+- `npm run typecheck` — строгая проверка TypeScript
+- `npm run build` — генерация Prisma Client и production-сборка
+- `npm run db:migrate` — создание и применение миграции для разработки
+- `npm run db:seed` — сброс и загрузка демонстрационных данных портфолио
+- `docker compose --profile production up --build` — сборка полного стека приложения и базы данных
 
-## Project structure
+## Структура проекта
 
-- `app/` — storefront, account, checkout, API and admin routes
-- `components/` — reusable commerce and shell UI
-- `store/` — persisted cart/favorites state
-- `lib/` — product demo source, validation, Prisma and shared types
-- `prisma/` — database schema and seed
-- `public/images/` — replaceable editorial/product imagery
+- `app/` — storefront, аккаунт, оформление заказа, API-маршруты и административные страницы
+- `components/` — переиспользуемые компоненты интерфейса магазина и оболочки сайта
+- `store/` — сохраняемое состояние корзины и избранного
+- `lib/` — источник демонстрационных товаров, валидация, Prisma и общие типы
+- `prisma/` — схема базы данных и seed-скрипт
+- `public/images/` — заменяемые изображения для редакционных материалов и товаров
 
-Product imagery is deliberately referenced from one centralized product source (`lib/data.ts`) and local files, so production photography can be swapped without touching UI components.
+Изображения товаров намеренно подключаются из единого источника (`lib/data.ts`) и локальных файлов, поэтому фотографии для production можно заменить без изменения UI-компонентов.
