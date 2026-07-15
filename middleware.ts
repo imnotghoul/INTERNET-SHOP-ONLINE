@@ -1,0 +1,3 @@
+import { getToken } from "@auth/core/jwt";import { NextResponse,type NextRequest } from "next/server";
+export default async function middleware(req:NextRequest){const path=req.nextUrl.pathname;const token=await getToken({req,secret:process.env.AUTH_SECRET});if((path.startsWith("/account")||path.startsWith("/orders"))&&!token)return NextResponse.redirect(new URL("/login",req.url));if(path.startsWith("/admin")&&!path.startsWith("/admin/login")){if(!token)return NextResponse.redirect(new URL("/admin/login",req.url));if(token.role!=="ADMIN")return NextResponse.redirect(new URL("/",req.url));}return NextResponse.next()}
+export const config={matcher:["/account/:path*","/orders/:path*","/admin/:path*"]};

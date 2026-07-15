@@ -1,0 +1,3 @@
+import { products } from "@/lib/data"; import { ShopClient } from "@/components/shop-client";
+export const metadata={title:"Shop"};
+export default function Shop(){return <main className="pt-[72px]"><section className="container-x pb-12 pt-20 md:pb-16 md:pt-28"><div className="eyebrow mb-5 text-black/45">Shop / All pieces</div><h1 className="display text-[clamp(68px,13vw,190px)]">The collection</h1><p className="mt-6 max-w-lg text-sm leading-6 text-black/55">A precise wardrobe of everyday layers, technical outerwear and considered accessories.</p></section><ShopClient initial={products}/></main>}

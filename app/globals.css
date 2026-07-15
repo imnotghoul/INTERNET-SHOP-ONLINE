@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --ink:#10100f; --bone:#f2f0e9; --fog:#d9d7d0; --text:#10100f; --surface:#e6e3db; --line:rgba(16,16,15,.16); color-scheme:light; }
+.dark { --bone:#0f0f0e; --fog:#282825; --text:#f2f0e9; --surface:#1a1a18; --line:rgba(242,240,233,.18); color-scheme:dark; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bone); color:var(--text); font-family:Inter,"Helvetica Neue",Arial,sans-serif; transition:background-color .35s ease,color .35s ease; }
+::selection { background:#dfff00; color:#10100f; }
+a { color:inherit; text-decoration:none; }
+button,input,select,textarea { font:inherit; }
+button { cursor:pointer; }
+.display { font-family:"Arial Black","Helvetica Neue",Arial,sans-serif; font-weight:900; letter-spacing:-.065em; line-height:.89; text-transform:uppercase; }
+.eyebrow { font-size:10px; line-height:1; font-weight:700; text-transform:uppercase; letter-spacing:.2em; }
+.hairline { border-color:var(--line); }
+.container-x { width:100%; padding-left:clamp(20px,3.2vw,54px); padding-right:clamp(20px,3.2vw,54px); }
+.section-y { padding-top:clamp(72px,10vw,150px); padding-bottom:clamp(72px,10vw,150px); }
+.image-noise::after { content:""; position:absolute; inset:0; pointer-events:none; opacity:.13; mix-blend-mode:soft-light; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.34'/%3E%3C/svg%3E"); }
+.link-line { position:relative; }
+.link-line::after { content:""; position:absolute; left:0; right:100%; bottom:-3px; height:1px; background:currentColor; transition:right .35s ease; }
+.link-line:hover::after { right:0; }
+.field { width:100%; border:0; border-bottom:1px solid var(--line); background:transparent; padding:15px 0; outline:none; transition:border .2s; }
+.field:focus { border-color:currentColor; }
+.btn-dark,.btn-light,.btn-outline { display:inline-flex; min-height:52px; align-items:center; justify-content:center; gap:10px; padding:0 22px; border:1px solid var(--ink); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; transition:.25s; }
+.btn-dark { background:var(--ink); color:white; }
+.btn-dark:hover { background:#2b2b29; }
+.btn-light { background:#f2f0e9; color:#10100f; border-color:#f2f0e9; }
+.btn-light:hover { background:white; }
+.btn-outline { background:transparent; color:inherit; border-color:currentColor; }
+.btn-outline:hover { background:var(--ink); border-color:var(--ink); color:white; }
+.card-image img { transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s; }
+.card-image:hover img { transform:scale(1.035); }
+.dark .btn-dark { background:#f2f0e9; border-color:#f2f0e9; color:#10100f; }
+.dark .btn-dark:hover { background:#d9d7d0; }
+.dark .text-black { color:#f2f0e9; }
+.dark .text-black\/35 { color:rgb(242 240 233 / .35); }
+.dark .text-black\/40 { color:rgb(242 240 233 / .4); }
+.dark .text-black\/45 { color:rgb(242 240 233 / .45); }
+.dark .text-black\/50 { color:rgb(242 240 233 / .5); }
+.dark .text-black\/55 { color:rgb(242 240 233 / .55); }
+.dark .text-black\/60 { color:rgb(242 240 233 / .6); }
+.dark .text-black\/65 { color:rgb(242 240 233 / .65); }
+.dark .text-ink { color:var(--text); }
+.dark .bg-acid.text-ink { color:#10100f; }
+.dark .border-black { border-color:#f2f0e9; }
+.dark .border-black\/10 { border-color:rgb(242 240 233 / .1); }
+.dark .border-black\/20 { border-color:rgb(242 240 233 / .2); }
+.dark .border-black\/25 { border-color:rgb(242 240 233 / .25); }
+.dark .border-black\/30 { border-color:rgb(242 240 233 / .3); }
+.dark [class*="bg-[#"] { background-color:var(--surface) !important; }
+.dark .bg-white { background-color:#252522; }
+.dark input::placeholder,.dark textarea::placeholder { color:rgb(242 240 233 / .4); }
+.dark select option { background:#1a1a18; color:#f2f0e9; }
+@media (max-width:767px) { .display { line-height:.94; } }
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } }
